@@ -1,2 +1,5 @@
-﻿  Babax.cpp
-LINK : fatal error LNK1104: не удается открыть файл "C:\Users\slava\OneDrive\Документы\GitHub\test-balbes\Babax\packages\sdl2.2.0.5\build\native\..\..\\build\native\lib\x64\dynamic\SDL2main.lib"
+﻿  Game.cpp
+  Maze.cpp
+  Player.cpp
+  Создание кода...
+LINK : fatal error LNK1104: не удается открыть файл "C:\Users\Ученик\Documents\GitHub\test-balbes\Babax\packages\sdl2.2.0.5\build\native\..\..\\build\native\lib\x64\dynamic\SDL2main.lib"
