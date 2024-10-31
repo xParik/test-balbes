@@ -8,33 +8,12 @@ struct Wall {
     SDL_Rect rect;
 };
 
-// Структура для выхода
-struct Exit {
-    SDL_Rect rect;
-};
-
-// Функция для проверки столкновения с стенами
-bool checkCollision(const SDL_Rect& character, const vector<Wall>& walls) {
-    for (const auto& wall : walls) {
-        if (SDL_HasIntersection(&character, &wall.rect)) {
-            return true; // Произошло столкновение
-        }
-    }
-    return false; // Столкновений не было
-}
-
 // Функция для отрисовки лабиринта 
 void drawMaze(SDL_Renderer* renderer, const vector<Wall>& walls) {
     SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Красный цвет для стен 
     for (const auto& wall : walls) {
         SDL_RenderFillRect(renderer, &wall.rect);
     }
-}
-
-// Функция для отрисовки выхода
-void drawExit(SDL_Renderer* renderer, const Exit& exit) {
-    SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255); // Зеленый цвет для выхода
-    SDL_RenderFillRect(renderer, &exit.rect);
 }
 
 int main(int argc, char* argv[]) {
@@ -116,8 +95,14 @@ int main(int argc, char* argv[]) {
     {{500, 490, 10, 20}}, //левая стенаZ
     };
 
-    // Определяем выход 
-    Exit exit = { { 780, 500, 20, 20 } }; // Пример: выход справа внизу
+    bool checkCollision(const SDL_Rect & character, const vector<Wall>&walls) {
+        for (const auto& wall : walls) {
+            if (SDL_HasIntersection(&character, &wall.rect)) {
+                return true; // Столкновение произошло
+            }
+        }
+        return false; // Столкновений нет
+    };
 
     // Основной цикл игры
     bool isRunning = true;
@@ -134,7 +119,6 @@ int main(int argc, char* argv[]) {
 
         // Получение состояния клавиш
         const Uint8* keystate = SDL_GetKeyboardState(NULL);
-        SDL_Rect newCharacterRect = characterRect; // Создаем временную переменную для проверки столкновений
 
         // Обработка нажатий клавиш WASD
         if (keystate[SDL_SCANCODE_W]) {
@@ -150,15 +134,17 @@ int main(int argc, char* argv[]) {
             characterRect.x += speed;
         }
 
-        // Проверка на столкновение со стенами
-        if (!checkCollision(newCharacterRect, walls)) {
-            characterRect = newCharacterRect; // Обновляем положение персонажа только если нет столкновения
-        }
+        // Проверка на выход за границы окна
+        if (characterRect.x < 0) characterRect.x = 0;
+        if (characterRect.x + characterRect.w > windowWidth)
+            characterRect.x = windowWidth - characterRect.w;
+        if (characterRect.y < 0) characterRect.y = 0;
+        if (characterRect.y + characterRect.h > windowHeight)
+            characterRect.y = windowHeight - characterRect.h;
 
-        // Проверка достижения выхода
-        if (SDL_HasIntersection(&characterRect, &exit.rect)) {
-            std::cout << "Вы победили!" << std::endl;
-            isRunning = false; // Завершаем игру при достижении выхода
+        // Проверка столкновений
+        if (!checkCollision(tempRect, walls)) {
+            characterRect = tempRect; // Перемещаем персонажа только если нет столкновений
         }
 
         // Очищаем экран
@@ -167,9 +153,6 @@ int main(int argc, char* argv[]) {
 
         // Отрисовка лабиринта 
         drawMaze(renderer, walls);
-
-        // Отрисовка выхода
-        drawExit(renderer, exit);
 
         // Отрисовка персонажа
         SDL_RenderCopy(renderer, characterTexture, NULL, &characterRect);
