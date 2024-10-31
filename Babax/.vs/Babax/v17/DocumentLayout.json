@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\\u0423\u0447\u0435\u043D\u0438\u043A\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\test-balbes\\Babax\\",
+  "WorkspaceRootPath": "C:\\Users\\\u0423\u0447\u0435\u043D\u0438\u043A\\Documents\\GitHub\\test-balbes\\Babax\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7E21521B-B92D-4DF7-9471-3CA425206142}|Babax\\Babax.vcxproj|C:\\Users\\\u0423\u0447\u0435\u043D\u0438\u043A\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\test-balbes\\Babax\\Babax\\Babax.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{7E21521B-B92D-4DF7-9471-3CA425206142}|Babax\\Babax.vcxproj|C:\\Users\\\u0423\u0447\u0435\u043D\u0438\u043A\\Documents\\GitHub\\test-balbes\\Babax\\Babax\\Babax.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7E21521B-B92D-4DF7-9471-3CA425206142}|Babax\\Babax.vcxproj|solutionrelative:Babax\\Babax.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Babax.cpp",
-              "DocumentMoniker": "C:\\Users\\\u0423\u0447\u0435\u043D\u0438\u043A\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\test-balbes\\Babax\\Babax\\Babax.cpp",
+              "DocumentMoniker": "C:\\Users\\\u0423\u0447\u0435\u043D\u0438\u043A\\Documents\\GitHub\\test-balbes\\Babax\\Babax\\Babax.cpp",
               "RelativeDocumentMoniker": "Babax\\Babax.cpp",
-              "ToolTip": "C:\\Users\\\u0423\u0447\u0435\u043D\u0438\u043A\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\test-balbes\\Babax\\Babax\\Babax.cpp",
+              "ToolTip": "C:\\Users\\\u0423\u0447\u0435\u043D\u0438\u043A\\Documents\\GitHub\\test-balbes\\Babax\\Babax\\Babax.cpp",
               "RelativeToolTip": "Babax\\Babax.cpp",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAQwJEAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAAAH4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-10T15:08:53.171Z",
               "EditorCaption": ""

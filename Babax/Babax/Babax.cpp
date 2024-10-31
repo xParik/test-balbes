@@ -95,15 +95,6 @@ int main(int argc, char* argv[]) {
     {{500, 490, 10, 20}}, //левая стенаZ
     };
 
-    bool checkCollision(const SDL_Rect & character, const vector<Wall>&walls) {
-        for (const auto& wall : walls) {
-            if (SDL_HasIntersection(&character, &wall.rect)) {
-                return true; // Столкновение произошло
-            }
-        }
-        return false; // Столкновений нет
-    };
-
     // Основной цикл игры
     bool isRunning = true;
     SDL_Event event;
@@ -132,19 +123,6 @@ int main(int argc, char* argv[]) {
         }
         if (keystate[SDL_SCANCODE_D]) {
             characterRect.x += speed;
-        }
-
-        // Проверка на выход за границы окна
-        if (characterRect.x < 0) characterRect.x = 0;
-        if (characterRect.x + characterRect.w > windowWidth)
-            characterRect.x = windowWidth - characterRect.w;
-        if (characterRect.y < 0) characterRect.y = 0;
-        if (characterRect.y + characterRect.h > windowHeight)
-            characterRect.y = windowHeight - characterRect.h;
-
-        // Проверка столкновений
-        if (!checkCollision(tempRect, walls)) {
-            characterRect = tempRect; // Перемещаем персонажа только если нет столкновений
         }
 
         // Очищаем экран
